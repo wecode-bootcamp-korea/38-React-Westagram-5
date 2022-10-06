@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './styles/reset.scss';
+import './styles/common.scss';
 
 // //최현님의 컴포넌트
 // import LoginHyun from './pages/choihyun/Login/Login';
