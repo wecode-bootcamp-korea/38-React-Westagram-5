@@ -23,7 +23,14 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginSue />} />
+        <Route path="/LoginHyun" element={<LoginHyun />} />
+        <Route path="/MainHyun" element={<MainHyun />} />
+        <Route path="/LoginSeon" element={<LoginSeon />} />
+        <Route path="/MainSeon" element={<MainSeon />} />
+        <Route path="/LoginMin" element={<LoginMin />} />
+        <Route path="/MainMin" element={<MainMin />} />
+        <Route path="/LoginSue" element={<LoginSue />} />
+        <Route path="/MainSue" element={<MainSue />} />
       </Routes>
     </BrowserRouter>
   );
