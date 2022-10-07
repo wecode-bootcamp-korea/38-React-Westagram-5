@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/reset.scss';
 import './styles/common.scss';
 
+import Nav from './components/Nav/Nav';
+
 //최현님의 컴포넌트
 import LoginHyun from './pages/choihyun/Login/Login';
 import MainHyun from './pages/choihyun/Main/Main';
@@ -23,6 +25,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={</Nav>}
         <Route path="/LoginHyun" element={<LoginHyun />} />
         <Route path="/MainHyun" element={<MainHyun />} />
         <Route path="/LoginSeon" element={<LoginSeon />} />
