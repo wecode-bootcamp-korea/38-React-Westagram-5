@@ -8,7 +8,7 @@ const LoginHyun = () => {
   let navigate = useNavigate()
 
   const successLogin = () => {
-    idInput.includes('@') && pwdInput.length>5 ? navigate('/main') :
+    idInput.includes('@') && pwdInput.length>5 ? navigate('/mainhyun') :
     alert('id와 password를 올바르게 입력하세요.')
     document.querySelectorAll('input')[0].value = ""
     document.querySelectorAll('input')[1].value = ""

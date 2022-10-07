@@ -1,13 +1,13 @@
 *{
   box-sizing: border-box;
 }
-body{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  background-color: rgb(231, 231, 231);
-}
+// body{
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   justify-content: center;
+//   background-color: rgb(231, 231, 231);
+// }
 .LogInContainer{
   margin: auto;
   width: 400px;
@@ -25,7 +25,7 @@ body{
   justify-content: center;
   width: 100%;
   height: 500px; 
-  border: 1px solid black;
+  border: 1px solid #e3e3e3;
   border-radius: 5px;
   background-color: white;
 }
@@ -33,7 +33,8 @@ body{
   font-family: 'Lobster';
   pointer-events: none;
   justify-content: center;
-  font-size: 80px;
+  font-size: 60px;
+  margin-bottom: 20px;
 }
 .inputBox{
   /* border : 1px solid black; */
