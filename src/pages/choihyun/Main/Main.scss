@@ -285,6 +285,10 @@ h4 {
   width: 100%;
   border: none;
   border-top: 1px solid #e0e0e0;
+
+  form {
+    width: 100%;
+  }
 }
 
 .comment div {
@@ -331,6 +335,7 @@ h4 {
   justify-content: flex-start;
   align-content: center;
   width: 100%;
+  padding-bottom: 20px;
 }
 
 .nicknameAndName {
@@ -353,7 +358,8 @@ h4 {
   border: 0.5px solid gray;
   border-radius: 5px;
   background-color: white;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .storyNav {
@@ -361,6 +367,8 @@ h4 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -409,6 +417,7 @@ h4 {
   border-radius: 5px;
   background-color: white;
   margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .suggestNav {
@@ -416,6 +425,8 @@ h4 {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }

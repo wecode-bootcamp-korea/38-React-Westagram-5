@@ -6,10 +6,13 @@ const MainHyun = () => {
   let [commentInputArr, setCommentIputArr] = useState([]);
 
   const onSubmit = event => {
+    console.log(commentInput);
     event.preventDefault();
-    let copyCommentInputArr = [...commentInput];
+    let copyCommentInputArr = [...commentInputArr];
+    copyCommentInputArr.push(commentInput);
+    console.log(copyCommentInputArr);
     setCommentIputArr(copyCommentInputArr);
-    console.log(commentInputArr);
+    setCommentIput('');
   };
   return (
     <>
@@ -104,20 +107,29 @@ const MainHyun = () => {
                 <span className="like">♡</span>
                 <span className="delete">X</span>
               </div>
+              {commentInputArr.map(commentInput => (
+                <div>
+                  <p className="ptagID">hyun._.gus</p>
+                  <p>{commentInput}</p>
+                  <span className="like">♡</span>
+                  <span className="delete">X</span>
+                </div>
+              ))}
             </div>
             <div className="comment">
               <div className="emoji">
-                <img src="/Users/hyun/Desktop/38-React-Westagram-5/src/assets/images/choihyun/emoji.png" />
+                <img
+                  src={require('/Users/hyun/Desktop/38-React-Westagram-5/src/assets/images/choihyun/emoji.png')}
+                />
               </div>
               <form onSubmit={onSubmit}>
                 <input
                   className="commentInput"
                   placeholder="댓글을 입력하세요..."
                   onChange={event => setCommentIput(event.target.value)}
+                  value={commentInput}
                 />
-                <button className="commentButton" disabled="">
-                  게 시
-                </button>
+                <button className="commentButton">게 시</button>
               </form>
             </div>
           </div>
