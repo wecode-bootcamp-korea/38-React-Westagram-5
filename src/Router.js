@@ -25,7 +25,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={</Nav>}
+        <Route path="/" element={<Nav />} />
         <Route path="/LoginHyun" element={<LoginHyun />} />
         <Route path="/MainHyun" element={<MainHyun />} />
         <Route path="/LoginSeon" element={<LoginSeon />} />
