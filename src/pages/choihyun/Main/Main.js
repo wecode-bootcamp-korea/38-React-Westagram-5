@@ -98,7 +98,7 @@ const MainHyun = () => {
             <div className="feedDesc">
               <div>
                 <p className="ptagID">hyun._.gus</p>
-                <p>대천에서 찍은 북두칠성 . . .</p>
+                <p>대천에서 찍은 북두칠성 . . . .</p>
                 <p id="moreDesc">&nbsp; &nbsp;더 보기</p>
               </div>
               <div>

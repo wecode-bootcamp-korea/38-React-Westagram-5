@@ -10,7 +10,7 @@ const LoginHyun = () => {
   const successLogin = () => {
     idInput.includes('@') && pwdInput.length > 5
       ? navigate('/mainhyun')
-      : alert('id와 password를 올바르게 입력하세요.');
+      : alert('id와 password를 올바르게 다시 입력하세요.');
     // document.querySelectorAll('input')[0].value = ""
     setInputId('');
     setInputPwd('');
