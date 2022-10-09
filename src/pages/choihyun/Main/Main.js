@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import './Main.scss';
+import Maincommentform from './Maincomment.js';
 
 const MainHyun = () => {
   let [commentInput, setCommentIput] = useState('');
   let [commentInputArr, setCommentIputArr] = useState([]);
 
-  const onSubmit = event => {
-    console.log(commentInput);
-    event.preventDefault();
-    let copyCommentInputArr = [...commentInputArr];
-    copyCommentInputArr.push(commentInput);
-    console.log(copyCommentInputArr);
-    setCommentIputArr(copyCommentInputArr);
-    setCommentIput('');
-  };
   return (
     <>
       <div className="nav">
@@ -95,43 +87,12 @@ const MainHyun = () => {
                 <i className="fa-regular fa-bookmark fa-2x" />
               </div>
             </div>
-            <div className="feedDesc">
-              <div>
-                <p className="ptagID">hyun._.gus</p>
-                <p>대천에서 찍은 북두칠성 . . . .</p>
-                <p id="moreDesc">&nbsp; &nbsp;더 보기</p>
-              </div>
-              <div>
-                <p className="ptagID">wecode.bootcamp</p>
-                <p>어머~ 너무 이뻐용 ㅎㅎㅎ</p>
-                <span className="like">♡</span>
-                <span className="delete">X</span>
-              </div>
-              {commentInputArr.map(commentInput => (
-                <div>
-                  <p className="ptagID">hyun._.gus</p>
-                  <p>{commentInput}</p>
-                  <span className="like">♡</span>
-                  <span className="delete">X</span>
-                </div>
-              ))}
-            </div>
-            <div className="comment">
-              <div className="emoji">
-                <img
-                  src={require('/Users/hyun/Desktop/38-React-Westagram-5/src/assets/images/choihyun/emoji.png')}
-                />
-              </div>
-              <form onSubmit={onSubmit}>
-                <input
-                  className="commentInput"
-                  placeholder="댓글을 입력하세요..."
-                  onChange={event => setCommentIput(event.target.value)}
-                  value={commentInput}
-                />
-                <button className="commentButton">게 시</button>
-              </form>
-            </div>
+            <Maincommentform
+              commentInput={commentInput}
+              setCommentIput={setCommentIput}
+              commentInputArr={commentInputArr}
+              setCommentIputArr={setCommentIputArr}
+            />
           </div>
         </div>
         <div className="main-right">
