@@ -1,11 +1,49 @@
 import React from 'react';
+import './Login.scss';
+// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import Input from './Input.js';
+import Button from './Button.js';
 
-function LoginSeon() {
+const Login = () => {
+  const navigate = useNavigate();
+
+  const [saveUserId, setSaveUserId] = useState('');
+  const [saveUserPassword, setSaveUserPassword] = useState('');
+
   return (
-    <div>
-      <h1>안녕하세요 동선 로그인 페이지입니다.</h1>
-    </div>
+    <>
+      <div className="login-page">
+        <div className="midDiv">
+          <h1>Westagram</h1>
+          <div className="totalForm">
+            <div>
+              <Input
+                setSaveUserId={setSaveUserId}
+                setSaveUserPassword={setSaveUserPassword}
+                saveUserId={saveUserId}
+                saveUserPassword={saveUserPassword}
+              />
+            </div>
+            <Button
+              setSaveUserId={setSaveUserId}
+              setSaveUserPassword={setSaveUserPassword}
+              saveUserId={saveUserId}
+              saveUserPassword={saveUserPassword}
+              navigate={navigate}
+            />
+          </div>
+          <a
+            href="https://www.instagram.com/accounts/password/reset/"
+            className="forgetpassword"
+          >
+            비밀번호를 잊으셨나요?
+          </a>
+        </div>
+      </div>
+    </>
   );
-}
+};
 
-export default LoginSeon;
+export default Login;
