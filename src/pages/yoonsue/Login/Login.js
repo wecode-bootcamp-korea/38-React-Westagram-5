@@ -7,21 +7,18 @@ function LoginSue() {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const navigate = useNavigate('');
-  const navigateToMain = () => {
-    navigate('/Main');
-  };
-
-  const onChangeId = e => {
+  const saveUserId = e => {
     setId(e.target.value);
   };
-  const onChangePw = e => {
+  const saveUserPw = e => {
     setPw(e.target.value);
   };
-  const isBtnDisable = () => {
-    return id.includes('@') && pw.length > 5 ? false : true;
+  const navigateToMain = () => {
+    navigate('/MainSue');
   };
   const onKeyDown = e => {
-    e.key === 'Enter' ? navigateToMain() : console.log();
+    if (e.key === 'Enter' && id.includes('@') && pw.length > 5)
+      navigateToMain();
   };
 
   return (
@@ -30,15 +27,15 @@ function LoginSue() {
         <div className="logo">Westagram</div>
         <div>
           <div className="container1">
-            <input
-              onChange={onChangeId}
+            <Input
+              onChange={saveUserId}
               value={id}
               className="id"
-              type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
+              onKeyDown={onKeyDown}
             />
-            <input
-              onChange={onChangePw}
+            <Input
+              onChange={saveUserPw}
               value={pw}
               className="pw"
               type="password"
@@ -46,7 +43,7 @@ function LoginSue() {
               onKeyDown={onKeyDown}
             />
             <Button
-              onInputChange={isBtnDisable}
+              onInputChange={!(id.includes('@') && pw.length > 5)}
               onClick={() => {
                 navigate('/MainSue');
               }}
@@ -59,13 +56,32 @@ function LoginSue() {
     </div>
   );
 }
+
 function Button(props) {
+  const propsFromLoginSue = props;
   return (
     <div className="button">
-      <button disabled={props.onInputChange()} onClick={props.onClick}>
+      <button
+        disabled={propsFromLoginSue.onInputChange}
+        onClick={propsFromLoginSue.onClick}
+      >
         로그인
       </button>
     </div>
+  );
+}
+
+function Input(props) {
+  const propsFromFeeds = props;
+  return (
+    <input
+      onChange={propsFromFeeds.onChange}
+      value={propsFromFeeds.value}
+      placeholder={propsFromFeeds.placeholder}
+      className={propsFromFeeds.className}
+      type={propsFromFeeds.type}
+      onKeyDown={propsFromFeeds.onKeyDown}
+    />
   );
 }
 
