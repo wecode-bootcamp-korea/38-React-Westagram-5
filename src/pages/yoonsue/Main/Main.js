@@ -98,10 +98,9 @@ function Feeds() {
 }
 
 function CommentList(props) {
-  const propsFromFeeds = props;
-  const commentArr = propsFromFeeds.comments;
+  const commentArr = props.comments;
   return (
-    <ul className="comment_new">
+    <ul className={props.className}>
       {commentArr
         .map((comment, index) => {
           return <Comment comment={comment} key={index} />;
