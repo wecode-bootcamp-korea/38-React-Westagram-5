@@ -44,8 +44,8 @@ const Maincommentform = props => {
           </span>
           <span className="delete">X</span>
         </div>
-        {commentInputArr.map(commentInput => (
-          <div>
+        {commentInputArr.map((commentInput, index) => (
+          <div key={index}>
             <p className="ptagID">hyun._.gus</p>
             <p>{commentInput}</p>
             <span className="like" onClick={commentLike}>
