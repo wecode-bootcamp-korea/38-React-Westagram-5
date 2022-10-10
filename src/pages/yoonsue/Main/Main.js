@@ -1,32 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Main.scss';
-import { useState } from 'react';
 
 function Feeds() {
-  const [text, setText] = useState('');
+  const [comment, setComment] = useState('');
   const [commentArr, setCommentArr] = useState([]);
   const onChange = event => {
-    setText(event.target.value);
+    const newComment = event.target.value;
+    setComment(newComment);
+    console.log(newComment);
   };
   const isDisabled = () => {
-    return text.trim().length > 0 ? false : true;
+    return comment.trim().length > 0 ? false : true;
   };
   const EnterSubmit = event => {
-    setCommentArr(commentList => [text, ...commentList]);
     event.preventDefault();
-    setText('');
-    test();
+    setCommentArr(commentList => [comment, ...commentList]);
+    setComment('');
   };
-  const test = () => {
-    console.log(commentArr);
-  };
-
   const onKeyDown = event => {
-    event.key === 'Enter' && event.nativeEvent.isComposing === false
-      ? EnterSubmit(event)
-      : console.log();
+    if (event.key === 'Enter' && event.nativeEvent.isComposing === false)
+      EnterSubmit(event);
   };
-  const onClick = event => {
+  const onSubmit = event => {
     EnterSubmit(event);
   };
   return (
@@ -68,12 +63,12 @@ function Feeds() {
         </div>
         <div className="comment_box">
           <div className="user_comment">
-            <span>hotchocomite</span>
+            <span className="userId">hotchocomite</span>
             <span>멋진 신세계...</span>
             <span>더 보기</span>
           </div>
           {/* commentList */}
-          <CommentList className="comment_new" />
+          <CommentList className="comment_new" comments={commentArr} />
         </div>
         <div className="timestamp">42분 전</div>
       </article>
@@ -84,7 +79,7 @@ function Feeds() {
           <input
             onChange={onChange}
             onKeyDown={onKeyDown}
-            value={text}
+            value={comment}
             id="comment"
             type="text"
             placeholder="댓글 달기..."
@@ -93,7 +88,7 @@ function Feeds() {
         {/* button */}
         <button
           disabled={isDisabled()}
-          onClick={onClick}
+          onClick={onSubmit}
           className="comment_btn"
         >
           게시
@@ -104,7 +99,30 @@ function Feeds() {
 }
 
 function CommentList(props) {
-  return <ul className="comment_new"></ul>;
+  const propsFromFeeds = props;
+  const commentArr = propsFromFeeds.comments;
+  const deleteComment = () => {
+    commentArr.filter(comment => {
+      return !this.comment;
+    });
+  };
+  return (
+    <ul className="comment_new">
+      {commentArr
+        .map((comment, key) => {
+          return (
+            <li key={key}>
+              <span className="userId">hello</span>
+              <span className="comment_new_box">{comment}</span>
+              <button className="delete" onClick={deleteComment}>
+                X
+              </button>
+            </li>
+          );
+        })
+        .reverse()}
+    </ul>
+  );
 }
 
 function MainSue() {
@@ -118,7 +136,7 @@ function MainSue() {
               <div className="self_profile">
                 <img
                   src={require('../../../assets/images/yoonsue/profile.JPG')}
-                  alt="Image of Profile"
+                  alt="Profile"
                 ></img>
                 <div>
                   <div>hotchocomite</div>

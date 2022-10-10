@@ -251,6 +251,7 @@ li > div:nth-child(2) {
 .comment_new_box {
   @include flexSort(flex, space-between, null);
   width: 100%;
+  font-weight: 400;
 }
 
 .comment_new_box > div:first-child {
