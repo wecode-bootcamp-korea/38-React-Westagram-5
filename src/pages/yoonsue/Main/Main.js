@@ -7,7 +7,6 @@ function Feeds() {
   const onChange = event => {
     const newComment = event.target.value;
     setComment(newComment);
-    console.log(newComment);
   };
   const isDisabled = () => {
     return comment.trim().length > 0 ? false : true;
@@ -101,27 +100,24 @@ function Feeds() {
 function CommentList(props) {
   const propsFromFeeds = props;
   const commentArr = propsFromFeeds.comments;
-  const deleteComment = () => {
-    commentArr.filter(comment => {
-      return !this.comment;
-    });
-  };
   return (
     <ul className="comment_new">
       {commentArr
-        .map((comment, key) => {
-          return (
-            <li key={key}>
-              <span className="userId">hello</span>
-              <span className="comment_new_box">{comment}</span>
-              <button className="delete" onClick={deleteComment}>
-                X
-              </button>
-            </li>
-          );
+        .map((comment, index) => {
+          return <Comment comment={comment} key={index} />;
         })
         .reverse()}
     </ul>
+  );
+}
+
+function Comment({ comment }) {
+  return (
+    <li>
+      <span className="userId">hello</span>
+      <span className="comment_new_box">{comment}</span>
+      <button className="delete">X</button>
+    </li>
   );
 }
 
