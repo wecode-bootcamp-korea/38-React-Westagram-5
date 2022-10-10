@@ -57,30 +57,25 @@ function LoginSue() {
   );
 }
 
-function Button(props) {
-  const propsFromLoginSue = props;
+function Button({ onInputChange, onClick }) {
   return (
     <div className="button">
-      <button
-        disabled={propsFromLoginSue.onInputChange}
-        onClick={propsFromLoginSue.onClick}
-      >
+      <button disabled={onInputChange} onClick={onClick}>
         로그인
       </button>
     </div>
   );
 }
 
-function Input(props) {
-  const propsFromFeeds = props;
+function Input({ onChange, value, placeholder, className, type, onKeyDown }) {
   return (
     <input
-      onChange={propsFromFeeds.onChange}
-      value={propsFromFeeds.value}
-      placeholder={propsFromFeeds.placeholder}
-      className={propsFromFeeds.className}
-      type={propsFromFeeds.type}
-      onKeyDown={propsFromFeeds.onKeyDown}
+      onChange={onChange}
+      value={value}
+      placeholder={placeholder}
+      className={className}
+      type={type}
+      onKeyDown={onKeyDown}
     />
   );
 }
