@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
 
 function Feeds() {
-  const [comment, setComment] = useState('');
-  const [commentArr, setCommentArr] = useState([]);
+  const [comment, setComment] = useState(''); //input창에 입력하는 즉시 업데이트
+  const [comments, setComments] = useState([]);
   const onChange = event => {
     const newComment = event.target.value;
     setComment(newComment);
@@ -11,18 +11,14 @@ function Feeds() {
   const isDisabled = () => {
     return comment.trim().length > 0 ? false : true;
   };
-  const EnterSubmit = event => {
-    event.preventDefault();
-    setCommentArr(commentList => [comment, ...commentList]);
-    setComment('');
+  const submitComment = event => {
+    if (!event.nativeEvent.isComposing && comment.length > 0) {
+      event.preventDefault();
+      setComments(comments => [...comments, comment]);
+      setComment('');
+    } else if (!comment.length) event.preventDefault();
   };
-  const onKeyDown = event => {
-    if (event.key === 'Enter' && event.nativeEvent.isComposing === false)
-      EnterSubmit(event);
-  };
-  const onSubmit = event => {
-    EnterSubmit(event);
-  };
+
   return (
     <div className="feeds">
       <article>
@@ -67,31 +63,30 @@ function Feeds() {
             <span>더 보기</span>
           </div>
           {/* commentList */}
-          <CommentList className="comment_new" comments={commentArr} />
+          <CommentList
+            className="comment_new"
+            comments={comments}
+            setCommentArr={setComments}
+          />
         </div>
         <div className="timestamp">42분 전</div>
       </article>
 
       {/* input */}
       <div className="comment_parent">
-        <form>
+        <form onSubmit={submitComment}>
           <input
             onChange={onChange}
-            onKeyDown={onKeyDown}
             value={comment}
             id="comment"
             type="text"
             placeholder="댓글 달기..."
           />
+          <button disabled={isDisabled()} className="comment_btn">
+            게시
+          </button>
         </form>
         {/* button */}
-        <button
-          disabled={isDisabled()}
-          onClick={onSubmit}
-          className="comment_btn"
-        >
-          게시
-        </button>
       </div>
     </div>
   );
@@ -101,21 +96,34 @@ function CommentList(props) {
   const commentArr = props.comments;
   return (
     <ul className={props.className}>
-      {commentArr
-        .map((comment, index) => {
-          return <Comment comment={comment} key={index} />;
-        })
-        .reverse()}
+      {commentArr.map((comment, index) => {
+        return (
+          <Comment comment={comment} comments={props.comments} key={index} />
+        );
+      })}
     </ul>
   );
 }
 
-function Comment({ comment }) {
+function Comment(props) {
+  console.log(props);
+  // const deleteComment = index => {
+  //   props.comments.filter((_, i) => {
+  //     return i !== index;
+  //   });
+  // };
+  const deleteComment = event => {
+    props.comments.filter(item => {
+      return item !== event.target.value.parent;
+    });
+  };
   return (
     <li>
       <span className="userId">hello</span>
-      <span className="comment_new_box">{comment}</span>
-      <button className="delete">X</button>
+      <span className="comment_new_box">{props.comment}</span>
+      <button onClick={deleteComment} className="delete">
+        X
+      </button>
     </li>
   );
 }
