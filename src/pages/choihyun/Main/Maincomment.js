@@ -10,6 +10,7 @@ const Maincommentform = props => {
     event.preventDefault();
     let copyCommentInputArr = [...commentInputArr];
     copyCommentInputArr.push({ value: commentInput, key: uniqueKey.current });
+    copyCommentInputArr.push(commentInput);
     setCommentIputArr(copyCommentInputArr);
     setCommentIput('');
     uniqueKey.current += 1;
