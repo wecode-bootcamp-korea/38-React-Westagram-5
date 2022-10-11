@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Main.scss';
 import dog from '../../../assets/images/dongseon/dog.jpeg';
 import jum from '../../../assets/images/dongseon/jum.png';
+import Comment from './Comment';
 
 const Main = () => {
   let [comment, setComment] = useState('');
@@ -15,6 +16,13 @@ const Main = () => {
 
   const inputValue = e => {
     setComment(e.target.value);
+
+    console.log(comment);
+    if (comment.length >= 1) {
+      console.log('버튼활성화');
+    } else {
+      console.log('비활성화');
+    }
   };
 
   const btn = () => {
@@ -109,25 +117,14 @@ const Main = () => {
                       <p>neceosecius 거봐 좋았잖아~~~~🙆🏻‍♀️</p>
                       <div className="comment-list">
                         {button.map((item, index) => (
-                          <div className="comment-id-delete" key={index}>
-                            <div>
-                              <span>yYy_Ds</span>
-                              <span key={index}>{item}</span>
-                            </div>
-                            <div className="comment-delete">
-                              <span
-                                className="comment-list-delete"
-                                onClick={() => {
-                                  let copy = [...button];
-                                  copy.splice(index, 1);
-                                  setButton(copy);
-                                }}
-                              >
-                                삭제
-                              </span>
-                              <span className="comment-list-heart">❣️</span>
-                            </div>
-                          </div>
+                          <Comment
+                            comment={comment}
+                            setComment={setComment}
+                            button={button}
+                            setButton={setButton}
+                            item={item}
+                            index={index}
+                          />
                         ))}
                       </div>
                       <div className="textarea-time-emotion">

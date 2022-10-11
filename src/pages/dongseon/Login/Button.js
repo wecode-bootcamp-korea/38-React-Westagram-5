@@ -8,7 +8,9 @@ const Button = props => {
     setSaveUserPassword,
     navigate,
   } = props;
-  const isValid = saveUserId.includes('@') && saveUserPassword.length > 5;
+
+  const isValid =
+    saveUserId.includes('@') && saveUserPassword.includes('12345');
 
   const successLogin = () => {
     isValid
