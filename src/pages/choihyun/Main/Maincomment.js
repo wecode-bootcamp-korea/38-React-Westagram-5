@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const Maincommentform = props => {
   const { commentInput, setCommentIput, commentInputArr, setCommentIputArr } =
     props;
   // const [commentLikeButton, setCommentLikeButton] = useState('♡');
   // const [commentLikeClass, setCommentLikeClass] = useState('like');
+  const uniqueKey = useRef(1);
   const onSubmit = event => {
     event.preventDefault();
     let copyCommentInputArr = [...commentInputArr];
-    copyCommentInputArr.push(commentInput);
+    copyCommentInputArr.push({ value: commentInput, key: uniqueKey.current });
     setCommentIputArr(copyCommentInputArr);
     setCommentIput('');
+    uniqueKey.current += 1;
   };
   // const commentLikeToLiked = event => {
   //   setCommentLikeButton('♥');
@@ -26,6 +28,11 @@ const Maincommentform = props => {
         // : commentLikedToLike();
         (event.target.className = 'liked')((event.target.innerHTML = '♥'))
       : (event.target.className = 'like')((event.target.innerHTML = '♡'));
+  };
+
+  const commentDelete = id => {
+    const newInputArr = commentInputArr.filter(item => item.key !== id);
+    setCommentIputArr(newInputArr);
   };
 
   return (
@@ -44,14 +51,16 @@ const Maincommentform = props => {
           </span>
           <span className="delete">X</span>
         </div>
-        {commentInputArr.map((commentInput, index) => (
-          <div key={index}>
+        {commentInputArr.map(item => (
+          <div key={item.key}>
             <p className="ptagID">hyun._.gus</p>
-            <p>{commentInput}</p>
+            <p>{item.value}</p>
             <span className="like" onClick={commentLike}>
               ♡
             </span>
-            <span className="delete">X</span>
+            <span className="delete" onClick={() => commentDelete(item.key)}>
+              X
+            </span>
           </div>
         ))}
       </div>
