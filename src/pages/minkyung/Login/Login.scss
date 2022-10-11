@@ -1,0 +1,125 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixin.scss";
+
+
+
+html {
+    background-color: #fafafa;
+    
+    .line { border:1px solid #DBDBDB;
+      background-color:#FFFFFF;
+      margin-left :auto;
+      margin-right:auto;
+      width: 350px;
+      @include flex ();
+      margin-top: 50px;
+     
+
+     .westagram {
+      font-family: 'Lobster', cursive;
+     font-size:50px;
+     font-weight: lighter;
+      padding-bottom: 40px;
+      margin-top: 30px;
+     }
+  
+  
+     .idpasswordbutton{
+      justify-content: space-evenly;
+      .id{
+        padding: 9px;
+        font-size: 13px;
+        border: 1px solid #8E8E8E;
+        border-radius: 2px;
+        width: 250px;
+        color: #8E8E8E;
+       }
+       .password{
+        padding: 9px;
+        font-size: 13px;
+        border: 1px solid #8E8E8E;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 2px;
+        color: #8E8E8E;
+       }
+       button {
+        
+        color:white;
+        border :none;
+        width: 270px;
+        padding-top: 10px;
+        border-radius: 4px;
+        padding-bottom: 8px;
+      
+       }
+       .or{
+        font-size: 12px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #8E8E8E ;
+        flex-basis: 100%;
+        margin: 8px 0px;
+        top:-15px;
+        @include flex (null);
+      
+      } 
+       .or ::before, .or ::after{
+        content: "";
+        flex-grow: 1;
+        margin: 0px 16px;
+        height: 1px;
+        font-size: 0px;
+        line-height: 0px;
+        color: #8E8E8E;
+      }
+    
+      .facebook{
+        color: #385085;
+        font-weight: bold;
+        margin-top: 20px;
+        font-size: 15px;
+        @include flex ($flex:null);
+      }
+      
+      
+      .gotopassword{
+        font-size: 10px;
+        padding-top: 10px;
+        padding-top: 20px;
+        margin-bottom: 20px;
+        @include flex ($flex:null);
+      }
+    }
+  }
+
+
+  input{
+    width: 100%;
+    border: none;
+    display: flex;
+  }
+ 
+  
+  .sign{
+      border: 1px solid #DBDBDB;
+      margin : 30px;
+     background-color: white;
+     width: 352px;
+     margin-left :auto;
+     margin-right:auto;
+     padding-top: 20px;
+     padding-bottom: 20px;
+    @include flex ($flex:null);
+    .singin{
+       color: #6FBAF9 ;
+       } 
+       .singin{
+        color: #6FBAF9 ;
+       } 
+     }
+     a{
+     text-decoration: none;
+     }
+}
+ 
