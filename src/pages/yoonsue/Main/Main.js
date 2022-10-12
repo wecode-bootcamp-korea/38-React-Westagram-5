@@ -2,24 +2,6 @@ import React, { useState } from 'react';
 import Nav from '../../../components/Nav/Nav';
 import './Main.scss';
 
-function IconsUnderFeedIMG() {
-  const heartOnClick = e => {
-    e.target.style.fontVariationSettings = "'FILL'=1";
-  };
-  return (
-    <div className="icon_under_img">
-      <div className="main_icon">
-        <span className="material-symbols-rounded icon" onClick={heartOnClick}>
-          favorite
-        </span>
-        <span className="material-symbols-rounded icon">mode_comment</span>
-        <span className="material-symbols-rounded icon">ios_share</span>
-      </div>
-      <span className="material-symbols-rounded icon">bookmark</span>
-    </div>
-  );
-}
-
 function Feeds() {
   const [comment, setComment] = useState(''); //input창에 입력하는 즉시 업데이트
   const [comments, setComments] = useState([]); //qo
@@ -70,7 +52,16 @@ function Feeds() {
               />
             </div>
           </div>
-          <IconsUnderFeedIMG />
+          <div className="icon_under_img">
+            <div className="main_icon">
+              <span className="material-symbols-rounded icon">favorite</span>
+              <span className="material-symbols-rounded icon">
+                mode_comment
+              </span>
+              <span className="material-symbols-rounded icon">ios_share</span>
+            </div>
+            <span className="material-symbols-rounded icon">bookmark</span>
+          </div>
         </div>
         <div className="count-likes">
           <div className="liked_num_people"></div>
