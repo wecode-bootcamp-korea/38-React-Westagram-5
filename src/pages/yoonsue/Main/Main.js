@@ -75,28 +75,19 @@ function Feeds() {
             <span>멋진 신세계...</span>
             <span>더 보기</span>
           </div>
-          {/* commentList */}
           <ul className="comment_new">
             {comments.map(comment => (
-              <li key={comment.id} className="comment_new_box">
-                <div>
-                  <span className="userID">userId</span>
-                  <div>{comment.comment}</div>
-                </div>
-                <button
-                  className="delete"
-                  onClick={() => deleteComment(comment.id)} //콜백함수에서 comment.id를 받아서 filter할 것
-                >
-                  x
-                </button>
-              </li>
+              <Comment
+                key={comment.id}
+                id={comment.id}
+                content={comment.comment}
+                deletefunc={() => deleteComment(comment.id)}
+              />
             ))}
           </ul>
         </div>
         <div className="timestamp">42분 전</div>
       </article>
-
-      {/* input */}
       <div className="comment_parent">
         <form onSubmit={submitComment}>
           <input
@@ -110,9 +101,25 @@ function Feeds() {
             게시
           </button>
         </form>
-        {/* button */}
       </div>
     </div>
+  );
+}
+
+function Comment({ id, content, deletefunc }) {
+  return (
+    <li key={id} className="comment_new_box">
+      <div>
+        <span className="userID">userId</span>
+        <div>{content}</div>
+      </div>
+      <button
+        className="delete"
+        onClick={() => deletefunc(id)} //콜백함수에서 comment.id를 받아서 filter할 것
+      >
+        x
+      </button>
+    </li>
   );
 }
 
@@ -213,10 +220,12 @@ function MainSue() {
             </aside>
             <footer>
               {ASIDE_LIST.map(el => {
-                return <p key={el.id}>{el.menuName}</p>;
+                return (
+                  <span className="constdata" key={el.id}>
+                    {el.menuName} ·
+                  </span>
+                );
               })}
-              <p>Intagram 정보 지원</p>
-              <p>2019 INSTAGRAM</p>
             </footer>
           </div>
         </div>
