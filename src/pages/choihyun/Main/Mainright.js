@@ -1,4 +1,5 @@
 import React from 'react';
+import { MAIN_RIGHT_DATA } from './Mainrightdata';
 
 const Mainright = () => {
   return (
@@ -98,6 +99,11 @@ const Mainright = () => {
           </div>
         </div>
       </div>
+      <ul>
+        {MAIN_RIGHT_DATA.map(info => (
+          <li key={info.id}> {info.value}</li>
+        ))}
+      </ul>
     </div>
   );
 };
