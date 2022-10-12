@@ -39,31 +39,34 @@
         font-size: 20px;
       }
     }
+    input {
+      width: 180px;
+      height: 25px;
+      padding: 0px 0px 0px 90px;
+      border: 1px solid #cccccc;
+      border-radius: 3px;
+      background-color: #fafafa;
+      &:focus-visible {
+        outline: transparent;
+      }
+    }
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      width: 150px;
+      height: 30px;
+      .icon {
+        width: 25px;
+        height: 25px;
+        background-size: 25px;
+        cursor: pointer;
+      }
+    }
   }
 }
 
-input {
-  width: 180px;
-  height: 25px;
-  padding: 0px 0px 0px 90px;
-  border: 1px solid #cccccc;
-  border-radius: 3px;
-  background-color: #fafafa;
-  &:focus-visible {
-    outline: transparent;
-  }
-}
 
-.icons {
-  display: flex;
-  justify-content: space-between;
-  width: 150px;
-  height: 30px;
-}
 
-.icon {
-  width: 25px;
-  height: 25px;
-  background-size: 25px;
-  cursor: pointer;
-}
+
+
+

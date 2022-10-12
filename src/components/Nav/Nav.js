@@ -24,7 +24,7 @@ function Nav() {
           <span className="icon profile material-symbols-outlined">
             account_circle
             <div className="icon profile">
-              <section className="toggle-profile">
+              {/* <section className="toggle-profile">
                 <div className="toggle-items">
                   <div className="icon toggle1"></div>
                   <span>프로필</span>
@@ -38,7 +38,7 @@ function Nav() {
                   <span>설정</span>
                 </div>
                 <div className="toggle-items">logout</div>
-              </section>
+              </section> */}
             </div>
           </span>
         </div>
