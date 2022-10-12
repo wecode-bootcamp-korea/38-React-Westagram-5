@@ -36,17 +36,20 @@ function Feeds() {
   const submitComment = event => {
     if (!event.nativeEvent.isComposing && comment.length > 0) {
       event.preventDefault();
-      setComments(comments => [...comments, comment]);
+      setComments(comments => [
+        ...comments,
+        { id: new Date().getTime(), comment: comment }, //여기에서 id값을 부여
+      ]);
       setComment('');
     } else if (!comment.length) event.preventDefault();
   };
 
-  const deleteComment = index => {
-    const newComments = comments;
-    newComments.splice(index, 1);
+  const deleteComment = id => {
+    const newComments = comments.filter(comment => {
+      return comment.id !== id;
+    });
     setComments([...newComments]);
   };
-
   return (
     <div className="feeds">
       <article>
@@ -67,7 +70,7 @@ function Feeds() {
               />
             </div>
           </div>
-          <IconsUnderFeedIMG></IconsUnderFeedIMG>
+          <IconsUnderFeedIMG />
         </div>
         <div className="count-likes">
           <div className="liked_num_people"></div>
@@ -83,15 +86,15 @@ function Feeds() {
           </div>
           {/* commentList */}
           <ul className="comment_new">
-            {comments.map((comment, index) => (
-              <li key={index} className="comment_new_box">
+            {comments.map(comment => (
+              <li key={comment.id} className="comment_new_box">
                 <div>
                   <span className="userID">userId</span>
-                  <div>{comment}</div>
+                  <div>{comment.comment}</div>
                 </div>
                 <button
                   className="delete"
-                  onClick={index => deleteComment(index)}
+                  onClick={() => deleteComment(comment.id)} //콜백함수에서 comment.id를 받아서 filter할 것
                 >
                   x
                 </button>
@@ -218,6 +221,9 @@ function MainSue() {
               </div>
             </aside>
             <footer>
+              {ASIDE_LIST.map(el => {
+                return <p key={el.id}>{el.menuName}</p>;
+              })}
               <p>Intagram 정보 지원</p>
               <p>2019 INSTAGRAM</p>
             </footer>
