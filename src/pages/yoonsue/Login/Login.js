@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 function LoginSue() {
@@ -16,9 +16,30 @@ function LoginSue() {
   const navigateToMain = () => {
     navigate('/MainSue');
   };
-  const onKeyDown = e => {
-    if (e.key === 'Enter' && id.includes('@') && pw.length > 5)
-      navigateToMain();
+  // const loginAuthorization = () => {
+  //   fetch('http://10.58.52.130:3000/auth/signin', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ email: id, password: pw }),
+  //   })
+  //     .then(response => {
+  //       return response.json();
+  //     })
+  //     .then(data => {
+  //       localStorage.setItem('TOKEN', data.accessToken);
+  //       alert('로그인 성공');
+  //     });
+  // };
+  // console.log(localStorage.getItem('TOKEN'));
+  // const onKeyDown = e => {
+  //   if (e.key === 'Enter' && id.includes('@') && pw.length > 5)
+  //     loginAuthorization();
+  //   // navigateToMain();
+  // };
+  const onSubmit = e => {
+    e?.preventDefault();
+    if (id.includes('@') && pw.length > 5) navigateToMain();
+    // loginAuthorization();
   };
 
   return (
@@ -26,30 +47,28 @@ function LoginSue() {
       <div className="container">
         <div className="logo">Westagram</div>
         <div>
-          <div className="container1">
-            <Input
-              onChange={saveUserId}
-              value={id}
-              className="id"
-              placeholder="전화번호, 사용자 이름 또는 이메일"
-              onKeyDown={onKeyDown}
-            />
-            <Input
-              onChange={saveUserPw}
-              value={pw}
-              className="pw"
-              type="password"
-              placeholder="비밀번호"
-              onKeyDown={onKeyDown}
-            />
-            <Button
-              onInputChange={!(id.includes('@') && pw.length > 5)}
-              onClick={() => {
-                navigate('/MainSue');
-              }}
-            />
-            <div className="horizontalline"></div>
-            <div>비밀번호를 잊으셨나요?</div>
+          <div>
+            <form className="container1" action="submit" onSubmit={onSubmit}>
+              <Input
+                onChange={saveUserId}
+                value={id}
+                className="id"
+                placeholder="전화번호, 사용자 이름 또는 이메일"
+              />
+              <Input
+                onChange={saveUserPw}
+                value={pw}
+                className="pw"
+                type="password"
+                placeholder="비밀번호"
+              />
+              <Button
+                onInputChange={!(id.includes('@') && pw.length > 5)}
+                onClick={onSubmit}
+              />
+              <div className="horizontalline"></div>
+              <div>비밀번호를 잊으셨나요?</div>
+            </form>
           </div>
         </div>
       </div>
@@ -67,7 +86,7 @@ function Button({ onInputChange, onClick }) {
   );
 }
 
-function Input({ onChange, value, placeholder, className, type, onKeyDown }) {
+function Input({ onChange, value, placeholder, className, type }) {
   return (
     <input
       onChange={onChange}
@@ -75,7 +94,6 @@ function Input({ onChange, value, placeholder, className, type, onKeyDown }) {
       placeholder={placeholder}
       className={className}
       type={type}
-      onKeyDown={onKeyDown}
     />
   );
 }
