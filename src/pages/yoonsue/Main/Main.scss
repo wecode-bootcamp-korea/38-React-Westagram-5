@@ -21,7 +21,8 @@
 }
 
 .body {
-  @include widthHeight(100%, 150vh);
+  @include widthHeight(100%, 100%);
+  background-color: #fafafa;
 
   main {
     @include flexSort(flex, center, null);
@@ -58,13 +59,13 @@
               border-radius: 50%;
               @include widthHeight(38px, 38px);
               background-size: 38px;
-              //   background-image: url(../../assets/images/profile.JPG);
+              background-image: url(../../../assets/images/yoonsue/profile.JPG);
             }
           }
           .hamburger {
             @include widthHeight(20px, 20px);
             background-size: 20px;
-            // background-image: url(../../assets/images/menu-dots.svg);
+            background-image: url(../../../assets/images/yoonsue/menu-dots.svg);
             margin-right: 15px;
           }
         }
@@ -79,7 +80,7 @@
             border: 1px solid #e3e3e3;
             border-radius: 50%;
             padding: 1px;
-            // background-image: url(../../assets/images/img_cat.png);
+            background-image: url(../../../assets/images/yoonsue/profile.JPG);
             background-size: 20px;
           }
         }
@@ -294,6 +295,11 @@ li > div:nth-child(2) {
   @include widthHeight(25px, 15px);
   margin-right: 5px;
   font-size: 5px;
+  background-color: #579ce281;
+  transition: 0.3s;
+  &:hover {
+    background-color: #579ce2;
+  }
 }
 
 .full_heart {
@@ -345,7 +351,8 @@ li > div:nth-child(2) {
     border: 2px solid white;
     border-radius: 50%;
     @include widthHeight(28px, 28px);
-    // background-image: url(../../assets/images/img_cat.png);
+    background-image: url(../../../assets/images/yoonsue/img_cat.png);
+    background-size: 200%;
   }
 }
 
