@@ -3,7 +3,7 @@
     "id": 1,
     "userprofileImg": "/src/assets/images/yoonsue/profile.JPG",
     "userID": "hotchocomite",
-    "contentImg": "/src/assets/images/yoonsue/img_cat.png",
+    "contentImg": "https://letstalkscience.ca/sites/default/files/2020-03/calico-cat.jpg",
     "countLikes": "3",
     "contentText": "나는 귀엽고 행복한 아롱이"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "userprofileImg": "/src/assets/images/yoonsue/profile.JPG",
     "userID": "hotchocomite",
-    "contentImg": "/src/assets/images/yoonsue/img_cat.png",
+    "contentImg": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/440px-Cat03.jpg",
     "countLikes": "9",
     "contentText": "다리짧이 아롱"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "userprofileImg": "/src/assets/images/yoonsue/profile.JPG",
     "userID": "hotchocomite",
-    "contentImg": "/src/assets/images/yoonsue/img_cat.png",
+    "contentImg": "https://www.treehugger.com/thmb/V2MhGaK4ChvZDatdfWIfm-wml3o=/2217x2217/smart/filters:no_upscale()/GettyImages-593450425-5176c57c7b77417f9dd01dfb43827e7b.jpg",
     "countLikes": "20",
     "contentText": "돼지 감자"
   }
