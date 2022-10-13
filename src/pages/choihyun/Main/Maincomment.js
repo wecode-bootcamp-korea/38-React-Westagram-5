@@ -3,16 +3,16 @@ import React, { useState, useRef } from 'react';
 const Maincommentform = props => {
   const { commentInput, setCommentIput, commentInputArr, setCommentIputArr } =
     props;
-  // const [commentLikeButton, setCommentLikeButton] = useState('♡');
-  // const [commentLikeClass, setCommentLikeClass] = useState('like');
+  const [commentLikeButton, setCommentLikeButton] = useState('♡');
+  const [commentLikeClass, setCommentLikeClass] = useState('like');
   const uniqueKey = useRef(1);
   const onSubmit = event => {
     event.preventDefault();
     let copyCommentInputArr = [...commentInputArr];
     copyCommentInputArr.push({ value: commentInput, key: uniqueKey.current });
-    copyCommentInputArr.push(commentInput);
     setCommentIputArr(copyCommentInputArr);
     setCommentIput('');
+    console.log('a');
     uniqueKey.current += 1;
   };
   // const commentLikeToLiked = event => {
