@@ -62,13 +62,16 @@ input {
 .login-button:disabled {
   background-color: #91cbe2;
 }
-.forgetpassword {
-  position: relative;
-  top: 100px;
-  text-decoration: none;
-  color: #4156bf;
-}
-input:hover {
+.idpw-input input:hover {
   opacity: 0.6;
+}
+.right-bottom-sigup{
+ display: flex;
+ justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+}
+.signup-button {
+  margin-bottom: 20px;
 }
 }

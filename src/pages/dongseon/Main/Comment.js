@@ -1,22 +1,15 @@
 import React from 'react';
 
 const Comment = props => {
-  const { comment, setComment, button, setButton, item, index } = props;
+  const { removeComment, item } = props;
   return (
-    <div className="comment-id-delete" key={index}>
+    <div className="comment-id-delete">
       <div>
         <span>yYy_Ds</span>
         <span>{item}</span>
       </div>
       <div className="comment-delete">
-        <span
-          className="comment-list-delete"
-          onClick={() => {
-            let copy = [...button];
-            copy.splice(index, 1);
-            setButton(copy);
-          }}
-        >
+        <span className="comment-list-delete" onClick={removeComment}>
           삭제
         </span>
         <span className="comment-list-heart">❣️</span>
