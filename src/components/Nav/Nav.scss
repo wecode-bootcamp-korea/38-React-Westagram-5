@@ -42,10 +42,10 @@
     input {
       width: 180px;
       height: 25px;
-      padding: 0px 0px 0px 90px;
       border: 1px solid #cccccc;
       border-radius: 3px;
       background-color: #fafafa;
+      text-align: center;
       &:focus-visible {
         outline: transparent;
       }
@@ -61,12 +61,19 @@
         background-size: 25px;
         cursor: pointer;
       }
+      .compass {
+        background-image: url(../../../src/assets/images/components/explore.png);
+      }
+
+      .liked {
+        position: relative;
+        background-position-y: 0.5px;
+        background-image: url(../../../src/assets/images/components/heart.png);
+      }
+
+      .profile {
+        background-image: url(../../../src/assets/images/components/profile.png);
+      }
     }
   }
 }
-
-
-
-
-
-
