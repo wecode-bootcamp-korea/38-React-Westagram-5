@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "userprofileImg": "/src/assets/images/yoonsue/profile.JPG",
+    "userID": "hotchocomite",
+    "contentImg": "/src/assets/images/yoonsue/img_cat.png",
+    "countLikes": "3",
+    "contentText": "나는 귀엽고 행복한 아롱이"
+  },
+  {
+    "id": 2,
+    "userprofileImg": "/src/assets/images/yoonsue/profile.JPG",
+    "userID": "hotchocomite",
+    "contentImg": "/src/assets/images/yoonsue/img_cat.png",
+    "countLikes": "9",
+    "contentText": "다리짧이 아롱"
+  },
+  {
+    "id": 3,
+    "userprofileImg": "/src/assets/images/yoonsue/profile.JPG",
+    "userID": "hotchocomite",
+    "contentImg": "/src/assets/images/yoonsue/img_cat.png",
+    "countLikes": "20",
+    "contentText": "돼지 감자"
+  }
+]

@@ -30,11 +30,16 @@
       @include flexSort(flex, space-between, null);
       @include widthHeight(840px, null);
       margin-top: 110px;
+      .aligning-feeds {
+        flex-direction: column;
+        @include flexSort(flex, flex-start, flex-start);
+      }
 
       .feeds {
         position: relative;
         border: 1.3px solid #b0b0b0;
         border-radius: 3px;
+        margin-bottom: 30px;
         @include widthHeight(570px, 880px);
         background-color: white;
 
@@ -85,9 +90,11 @@
           overflow: auto;
           span:first-child {
             font-weight: 700;
+            padding-right: 3px;
           }
           span:nth-child(2) {
             font-size: 15px;
+            padding-right: 3px;
           }
           span:nth-child(3) {
             font-size: 15px;

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../../../components/Nav/Nav';
 import './Main.scss';
 
-function Feeds() {
+function Feeds(props) {
   const [comment, setComment] = useState(''); //input창에 입력하는 즉시 업데이트
   const [comments, setComments] = useState([]); //qo
 
@@ -38,18 +38,15 @@ function Feeds() {
         <div className="header">
           <div>
             <div></div>
-            <span>hotchocomite</span>
+            <span>{props.userID}</span>
           </div>
           <div className="hamburger"></div>
         </div>
         <div className="main_img_icon">
           <div className="main_img">
             <div>
-              <img
-                src={require('../../../assets/images/yoonsue/img_cat.png')}
-                alt=""
-                className="src"
-              />
+              {/* contentImg */}
+              <img src={props.img} alt="Cat" className="src" />
             </div>
           </div>
           <div className="icon_under_img">
@@ -66,13 +63,15 @@ function Feeds() {
         <div className="count-likes">
           <div className="liked_num_people"></div>
           <span>
-            <b>kimsoopy</b>님 <b>외 10명</b>이 좋아합니다.
+            {/* countLikes */}
+            <b>kimsoopy</b>님 <b>외 {props.likes}명</b>이 좋아합니다.
           </span>
         </div>
         <div className="comment_box">
           <div className="user_comment">
+            {/* userId, contentText */}
             <span className="userId">hotchocomite</span>
-            <span>멋진 신세계...</span>
+            <span>{props.text}</span>
             <span>더 보기</span>
           </div>
           <ul className="comment_new">
@@ -124,12 +123,31 @@ function Comment({ id, content, deletefunc }) {
 }
 
 function MainSue() {
+  const [userData, setUserData] = useState([]);
+  useEffect(() => {
+    fetch('/data/data.json')
+      .then(response => response.json())
+      .then(result => setUserData(result));
+  });
+
   return (
     <div className="body">
       <Nav />
       <main>
         <div className="main">
-          <Feeds />
+          <div className="aligning-feeds">
+            {userData.map(el => {
+              return (
+                <Feeds
+                  key={el.id}
+                  userID={el.userID}
+                  img={el.contentImg}
+                  likes={el.countLikes}
+                  text={el.contentText}
+                />
+              );
+            })}
+          </div>
           <div className="main_right">
             <aside>
               <div className="self_profile">
