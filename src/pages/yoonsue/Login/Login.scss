@@ -1,0 +1,87 @@
+@import '../../../styles/variables.scss';
+
+@mixin button {
+  @include widthHeight(100%, 30px);
+  border: transparent;
+  color: white;
+  font-weight: 700;
+  border-radius: 3px;
+}
+
+.body {
+  @include flexSort(flex, center, null);
+  @include widthHeight(100%, 100vh);
+  background-color: #fafafa;
+}
+
+.container {
+  @include flexSort(flex, null, center);
+  flex-direction: column;
+  @include widthHeight(350px, 374px);
+  margin-top: 15%;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px 0px;
+  .logo {
+    @include widthHeight(175px, 51px);
+    margin-top: 36px;
+    margin-bottom: 12;
+    font-size: 39px;
+    font-family: 'Lobster';
+  }
+}
+
+.container1 {
+  @include flexSort(flex, null, center);
+  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  justify-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  width: 268px;
+  position: relative;
+  input {
+    @include widthHeight(100%, 38px);
+    padding: 9px 0px 7px 8px;
+    background-color: hsl(0, 0%, 98.04%);
+    border-radius: 3px;
+    border: 1px solid #e7e7e7;
+  }
+}
+
+.smallInputFont {
+  font-size: 12px;
+}
+
+input:focus-visible {
+  border: 1px solid #b0b0b0;
+}
+
+.button {
+  width: 100%;
+}
+
+button:disabled {
+  @include button();
+  cursor: default;
+  background-color: hsl(205.85, 91.55%, 86.08%);
+}
+
+button {
+  @include button();
+  background-color: hsl(203.66, 100%, 48.24%);
+  cursor: pointer;
+}
+
+.forgotQuestion {
+  font-size: 12px;
+}
+
+.horizontalline {
+  margin-top: 15px;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid #e7e7e7;
+}

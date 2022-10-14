@@ -1,0 +1,386 @@
+@import '../../../styles/variables.scss';
+
+@mixin flex30 {
+  @include flexSort(flex, space-between, null);
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+@mixin buttonSetting {
+  @include widthHeight(60px, 20px);
+  position: absolute;
+  background-color: transparent;
+  outline: transparent;
+  border: transparent;
+  padding-right: 20px;
+  bottom: 20px;
+  right: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.body {
+  @include widthHeight(100%, 100%);
+  background-color: #fafafa;
+
+  main {
+    @include flexSort(flex, center, null);
+
+    .main {
+      @include flexSort(flex, space-between, null);
+      @include widthHeight(840px, null);
+      margin-top: 110px;
+      .aligning-feeds {
+        flex-direction: column;
+        @include flexSort(flex, flex-start, flex-start);
+      }
+
+      .feeds {
+        position: relative;
+        border: 1.3px solid #b0b0b0;
+        border-radius: 3px;
+        margin-bottom: 30px;
+        @include widthHeight(570px, 880px);
+        background-color: white;
+
+        .header {
+          @include flexSort(flex, space-between, center);
+          @include widthHeight(100%, 70px);
+
+          div {
+            @include flexSort(flex, space-between, center);
+            span {
+              font-weight: 700;
+            }
+
+            div {
+              margin: 0 12px 0 15px;
+              border-radius: 50%;
+              @include widthHeight(38px, 38px);
+              background-size: 38px;
+              background-image: url(../../../assets/images/yoonsue/profile.JPG);
+            }
+          }
+          .hamburger {
+            @include widthHeight(20px, 20px);
+            background-size: 20px;
+            background-image: url(../../../assets/images/yoonsue/menu-dots.svg);
+            margin-right: 15px;
+          }
+        }
+        .count-likes {
+          @include flexSort(flex, null, flex-end);
+          @include widthHeight(null, 20px);
+          margin: 0 0 15px 15px;
+          .liked_num_people {
+            display: inline-block;
+            @include widthHeight(20px, 20px);
+            margin-right: 10px;
+            border: 1px solid #e3e3e3;
+            border-radius: 50%;
+            padding: 1px;
+            background-image: url(../../../assets/images/yoonsue/profile.JPG);
+            background-size: 20px;
+          }
+        }
+
+        .comment_box {
+          @include widthHeight(95%, 60px);
+          margin-left: 15px;
+          overflow: auto;
+          span:first-child {
+            font-weight: 700;
+            padding-right: 3px;
+          }
+          span:nth-child(2) {
+            font-size: 15px;
+            padding-right: 3px;
+          }
+          span:nth-child(3) {
+            font-size: 15px;
+            color: #b0b0b0;
+          }
+        }
+
+        .timestamp {
+          margin-left: 15px;
+          padding-bottom: 10px;
+          font-size: 15px;
+        }
+      }
+
+      .main_right {
+        display: grid;
+        grid-template-rows: repeat(2, 8fr, 2fr);
+        @include widthHeight(220px, 600px);
+
+        aside {
+          @include widthHeight(100%, 500px);
+
+          .self_profile {
+            @include flexSort(flex, null, center);
+            height: 70px;
+            background-color: #fafafa;
+
+            img {
+              @include widthHeight(50px, 50px);
+              border-radius: 50%;
+              margin: 0px 15px 0px -2px;
+            }
+
+            div {
+              display: flex;
+              flex-direction: column;
+              font-size: 13px;
+
+              div:first-child {
+                padding-bottom: 5px;
+                font-weight: 700;
+              }
+
+              div:nth-child(2) {
+                color: #8e8e8e;
+              }
+            }
+          }
+
+          .story {
+            @include widthHeight(100%, 250px);
+            padding: 10px 15px 10px 15px;
+            border-radius: 3px;
+            border: 1px solid #e3e3e3;
+            background-color: white;
+
+            .header {
+              @include flex30;
+            }
+          }
+
+          .recommend {
+            @include widthHeight(100%, 180px);
+            border-radius: 3px;
+            padding: 10px 15px 10px 15px;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid #e3e3e3;
+            margin-top: 10px;
+
+            .header {
+              @include flex30;
+            }
+          }
+        }
+        footer {
+          padding: 20px 5px 15px 5px;
+          line-height: 1.5;
+          font-size: 12px;
+          .constdata {
+            padding-right: 5px;
+            color: #b0b0b0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.icons {
+  @include flexSort(flex, space-between, null);
+  @include widthHeight(150px, 30px);
+}
+
+.icon {
+  @include widthHeight(30px, 30px);
+  background-size: 30px;
+  cursor: pointer;
+}
+.main_img_icon {
+  .main_img {
+    @include widthHeight(100.2%, 570px);
+
+    div {
+      @include widthHeight(100%, 570px);
+
+      .src {
+        @include widthHeight(100%, 100%);
+      }
+    }
+  }
+
+  .icon_under_img {
+    @include flexSort(flex, space-between, null);
+    @include widthHeight(100%, null);
+    padding: 15px 15px 15px 15px;
+
+    .main_icon {
+      @include flexSort(flex, space-between, null);
+      @include widthHeight(100px, 30px);
+    }
+  }
+}
+
+.comment_parent {
+  position: relative;
+  @include widthHeight(568px, 60px);
+  background-color: transparent;
+  #comment {
+    position: relative;
+    @include widthHeight(100%, 100%);
+    bottom: 0;
+    border: transparent;
+    border-top: 1.33px solid #e3e3e3;
+    padding: 20px 50px 20px 20px;
+    background-color: transparent;
+  }
+
+  .comment_btn {
+    @include buttonSetting;
+    cursor: pointer;
+    color: #579ce2;
+  }
+  :disabled {
+    @include buttonSetting;
+    color: #a3c5e8;
+  }
+}
+
+.userId {
+  padding-right: 3px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+li > div:nth-child(2) {
+  font-size: 15px;
+}
+
+.comment_new_box {
+  @include flexSort(flex, space-between, null);
+  width: 100%;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  span {
+    margin-right: 3px;
+  }
+  div:first-child {
+    @include flexSort(flex, space-between, null);
+    align-items: center;
+  }
+}
+
+.comment_heart {
+  position: relative;
+  @include widthHeight(15px, 14px);
+  padding: 3px;
+  background-size: 15px;
+  outline: transparent;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.comment_heart > div:first-child {
+  @include flexSort(flex, flex-end, null);
+}
+
+.delete {
+  @include widthHeight(25px, 15px);
+  margin-right: 5px;
+  font-size: 5px;
+  background-color: #579ce281;
+  transition: 0.3s;
+  &:hover {
+    background-color: #579ce2;
+  }
+}
+
+.full_heart {
+  position: absolute;
+  @include widthHeight(25px, 25px);
+  left: 0;
+  top: 0;
+  background-size: 25px;
+  background-color: white;
+  visibility: hidden;
+}
+
+.comment_full_heart {
+  position: absolute;
+  @include widthHeight(15px, 15px);
+  left: 0;
+  top: 0;
+
+  background-size: 15px;
+  background-color: white;
+  visibility: hidden;
+}
+
+.story_profile_img {
+  @include flexSort(flex, null, center);
+  flex-direction: row;
+  background-image: 30px;
+  margin-bottom: 15px;
+}
+
+.story_profile_img > div:last-child {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  .story-timeStamp {
+    font-size: 14px;
+    margin-top: 3px;
+    color: #8e8e8e;
+  }
+}
+
+.story_profile_img > div:first-child {
+  @include flexSort(flex, center, center);
+  @include widthHeight(31px, 31px);
+  margin-right: 7px;
+  border: 2px solid #a2198d;
+  border-radius: 50%;
+  .story-id {
+    font-weight: 700;
+  }
+  div {
+    border: 2px solid white;
+    border-radius: 50%;
+    @include widthHeight(28px, 28px);
+    background-image: url(../../../assets/images/yoonsue/img_cat.png);
+    background-size: 200%;
+  }
+}
+
+.toggle-profile {
+  @include flexSort(flex, null, center);
+  flex-direction: column;
+  position: absolute;
+  top: 55px;
+  right: -10px;
+  background-color: white;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.toggle-items {
+  @include flexSort(flex, flex-start, center);
+  @include widthHeight(200px, 45px);
+  padding: 0px 15px 0px 20px;
+  font-size: 15px;
+}
+
+.toggle-profile div:nth-child(4) {
+  border-top: 1px solid #e3e3e3;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.material-symbols-outlined {
+  font-size: 30px;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 48;
+}
