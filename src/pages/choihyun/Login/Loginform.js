@@ -18,7 +18,7 @@ const Loginform = ({
   };
 
   const totalValudation = event => {
-    event.key == 'Enter' ? successLogin() : console.log();
+    if (event.key == 'Enter') successLogin();
   };
   const loginfetch = () => {
     fetch('http://10.58.52.130:3000/auth/signin', {
