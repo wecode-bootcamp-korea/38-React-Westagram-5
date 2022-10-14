@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../../../components/Nav/Nav';
 import Feeds from '../../yoonsue/Main/Feeds';
+import Aside from './Aside';
+
 import './Main.scss';
 
 function MainSue() {
   const [userData, setUserData] = useState([]);
   useEffect(() => {
-    fetch('/data/data.json')
+    fetch('/images/yoonsue/yoonsuedata.json')
       .then(response => response.json())
       .then(result => setUserData(result));
+  });
+  const [storyData, setStoryData] = useState([]);
+  useEffect(() => {
+    fetch('/images/yoonsue/yoonsuestory.json')
+      .then(response => response.json())
+      .then(result => setStoryData(result));
+  });
+  const [recommendData, setRecommendData] = useState([]);
+  useEffect(() => {
+    fetch('/images/yoonsue/yoonsuerecommend.json')
+      .then(response => response.json())
+      .then(result => setRecommendData(result));
   });
 
   return (
@@ -41,81 +55,8 @@ function MainSue() {
                   <div>안녕하세용</div>
                 </div>
               </div>
-              <div className="story">
-                <div className="header">
-                  <span>스토리</span>
-                  <span>모두 보기</span>
-                </div>
-                <div className="story_profile_img">
-                  <div>
-                    <div></div>
-                  </div>
-                  <div>
-                    <div className="story-id">softcuddles</div>
-                    <div className="story-timeStamp">2분 전</div>
-                  </div>
-                </div>
-                <div className="story_profile_img">
-                  <div>
-                    <div></div>
-                  </div>
-                  <div>
-                    <div className="story-id">softcuddles</div>
-                    <div className="story-timeStamp">2분 전</div>
-                  </div>
-                </div>
-                <div className="story_profile_img">
-                  <div>
-                    <div></div>
-                  </div>
-                  <div>
-                    <div className="story-id">softcuddles</div>
-                    <div className="story-timeStamp">2분 전</div>
-                  </div>
-                </div>
-                <div className="story_profile_img">
-                  <div>
-                    <div></div>
-                  </div>
-                  <div>
-                    <div className="story-id">softcuddles</div>
-                    <div className="story-timeStamp">2분 전</div>
-                  </div>
-                </div>
-              </div>
-              <div className="recommend">
-                <div className="header">
-                  <span>스토리</span>
-                  <span>모두 보기</span>
-                </div>
-                <div className="story_profile_img">
-                  <div>
-                    <div></div>
-                  </div>
-                  <div>
-                    <div className="story-id">softcuddles</div>
-                    <div className="story-timeStamp">2분 전</div>
-                  </div>
-                </div>
-                <div className="story_profile_img">
-                  <div>
-                    <div></div>
-                  </div>
-                  <div>
-                    <div className="story-id">softcuddles</div>
-                    <div className="story-timeStamp">2분 전</div>
-                  </div>
-                </div>
-                <div className="story_profile_img">
-                  <div>
-                    <div></div>
-                  </div>
-                  <div>
-                    <div className="story-id">softcuddles</div>
-                    <div className="story-timeStamp">2분 전</div>
-                  </div>
-                </div>
-              </div>
+              <Aside name="story" data={storyData} />
+              <Aside name="recommend" data={recommendData} />
             </aside>
             <footer>
               {ASIDE_LIST.map(el => {

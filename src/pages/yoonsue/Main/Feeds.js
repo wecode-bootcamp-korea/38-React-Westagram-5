@@ -3,8 +3,8 @@ import Comment from '../../yoonsue/Main/Comment';
 import './Main.scss';
 
 function Feeds({ img, likes, text, userID }) {
-  const [comment, setComment] = useState(''); //input창에 입력하는 즉시 업데이트
-  const [comments, setComments] = useState([]); //qo
+  const [comment, setComment] = useState('');
+  const [comments, setComments] = useState([]);
 
   const onChange = event => {
     const newComment = event.target.value;
@@ -20,7 +20,7 @@ function Feeds({ img, likes, text, userID }) {
       event.preventDefault();
       setComments(comments => [
         ...comments,
-        { id: new Date().getTime(), comment: comment }, //여기에서 id값을 부여
+        { id: new Date().getTime(), comment: comment },
       ]);
       setComment('');
     } else if (!comment.length) event.preventDefault();
@@ -46,7 +46,6 @@ function Feeds({ img, likes, text, userID }) {
         <div className="main_img_icon">
           <div className="main_img">
             <div>
-              {/* contentImg */}
               <img src={img} alt="Cat" className="src" />
             </div>
           </div>
@@ -64,13 +63,11 @@ function Feeds({ img, likes, text, userID }) {
         <div className="count-likes">
           <div className="liked_num_people"></div>
           <span>
-            {/* countLikes */}
             <b>kimsoopy</b>님 <b>외 {likes}명</b>이 좋아합니다.
           </span>
         </div>
         <div className="comment_box">
           <div className="user_comment">
-            {/* userId, contentText */}
             <span className="userId">hotchocomite</span>
             <span>{text}</span>
             <span>더 보기</span>
