@@ -4,53 +4,9 @@ body {
   background-color: #fafafa;
   margin: 0px;
 }
-.topbar {
-  background-color: white;
-  margin-top: 0px;
-  border-bottom: 1px solid #ebebeb;
-  width: 100%;
-  height: 70px;
-  @include flexSort(flex, space-evenly, center);
-  .westaicontext {
-    display: flex;
-    .westaicon {
-      border-right: 1px solid #ebebeb;
-      margin-right: 10px;
-      display: flex;
-      margin-top: 5px;
-    }
-    .westatext {
-      font-family: 'Lobster', cursive;
-      font-size: 20px;
-      font-weight: lighter;
-      display: flex;
-      margin-left: 10px;
-    }
-  }
-  .icon {
-    display: flex;
-
-    .c-1,
-    .c-2,
-    .c-3 {
-      margin-left: 20px;
-      display: flex;
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  .finder {
-    display: flex;
-    padding: 5px;
-    font-size: 17px;
-    border: 1px solid #ebebeb;
-    border-radius: 2px;
-    width: 250px;
-    outline: none;
-  }
+.forNavTopBar {
+  height: 80px;
 }
-
 input {
   width: 100%;
   border: none;
