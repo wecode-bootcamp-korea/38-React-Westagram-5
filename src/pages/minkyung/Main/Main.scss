@@ -1,0 +1,245 @@
+@import '../../../styles/variables.scss';
+
+body {
+  background-color: #fafafa;
+  margin: 0px;
+}
+.forNavTopBar {
+  height: 80px;
+}
+input {
+  width: 100%;
+  border: none;
+  display: flex;
+}
+
+.profile-o,
+.profile-other {
+  border-radius: 100%;
+  size: 10px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  display: flex;
+}
+.mains {
+  display: flex;
+  justify-content: center;
+  .content {
+    @include flexSort(flex, center, center);
+    flex-direction: column;
+    .main_content {
+      position: relative;
+      width: 470px;
+      height: 1fr;
+      background-color: white;
+      border: 1px solid #ebebeb;
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+
+      .main {
+        margin: 10px;
+        position: relative;
+        display: flex;
+        .main_text {
+          margin-top: 6px;
+          width: 380px;
+          font-size: 13px;
+          font-weight: bold;
+          margin-left: 5px;
+        }
+        .main_icon {
+          /* display: flex; */
+          margin-top: 6px;
+          flex-direction: row;
+          margin-left: 40px;
+          margin-right: 0px;
+        }
+      }
+      .main_img {
+        width: 470px;
+        height: 470px;
+        margin-top: 0px;
+      }
+
+      .in-icon {
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        width: 470px;
+
+        .inicon-1 {
+          size: 30px;
+          display: flex;
+          height: 20px;
+          margin-right: 5px;
+          width: 430px;
+          .ic-1,
+          .ic-2,
+          .ic-3 {
+            margin-right: 10px;
+          }
+        }
+        .inicon-2 {
+          display: flex;
+          width: 20px;
+          height: 20px;
+          .ic-4 {
+            margin-right: 10px;
+          }
+        }
+      }
+      .extra {
+        flex-direction: column;
+
+        .likes {
+          display: flex;
+          margin: 10px;
+        }
+        .text {
+          display: flex;
+          flex-direction: column;
+          margin: 10px;
+          .mid {
+            display: flex;
+            .mid_1 {
+              font-size: 15px;
+              font-weight: bold;
+              margin-right: 3px;
+              margin-left: 5px;
+            }
+            .mid_2 {
+              font-size: 15px;
+            }
+          }
+          .w_reply {
+            .w_replyArray {
+              display: flex;
+              .w_reply_id {
+                font-size: 15px;
+                font-weight: bold;
+                display: flex;
+                width: 70px;
+              }
+              .w_reply_txt {
+                font-size: 15px;
+                display: flex;
+                width: 320px;
+              }
+              .w_icon {
+                display: flex;
+              }
+              .w_delete {
+                color: #9c9c9c;
+                display: flex;
+                width: 40px;
+              }
+              .w_delete:hover {
+                color: blue;
+              }
+            }
+          }
+        }
+        .reply {
+          border-top: 2px solid #ebebeb;
+          display: flex;
+          #reply {
+            width: 400px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+          .replybutton {
+            width: 40px;
+            border: none;
+            background-color: white;
+            color: #9c9c9c;
+          }
+        }
+      }
+    }
+  }
+  .sidebar {
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    .you {
+      font-size: 15px;
+      font-weight: bold;
+      flex-direction: row;
+      display: flex;
+      .profile-i {
+        border-radius: 100%;
+        size: 30px;
+        width: 30px;
+        height: 30px;
+        border: 1px solid black;
+        margin-right: 10px;
+      }
+      .yall {
+        flex-direction: column;
+        align-items: center;
+      }
+      .ycontent {
+        color: #9c9c9c;
+      }
+    }
+    .story {
+      background-color: white;
+      border: 2px solid #ebebeb;
+      .s_main {
+        margin: 10px;
+        @include flexSort(flex, space-between, center);
+        .story_story {
+          font-size: 12px;
+          color: #9c9c9c;
+          font-weight: bold;
+          display: flex;
+        }
+        .story_all {
+          font-size: 12px;
+          font-weight: bolder;
+          display: flex;
+        }
+      }
+      .story_icon {
+        display: flex;
+        font-size: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        .profile-5 {
+          font-weight: bold;
+          margin-left: 10px;
+          margin-top: 3px;
+          display: flex;
+        }
+      }
+    }
+    .foryou {
+      display: flex;
+    }
+  }
+}
+.AD {
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: center;
+  margin-top: 20px;
+  .asideData {
+    display: inline !important;
+    justify-content: center;
+    color: #cecece;
+    font-size: 11px;
+    //  margin: auto;
+  }
+  .asideData:after {
+    content: '\00B7';
+  }
+}

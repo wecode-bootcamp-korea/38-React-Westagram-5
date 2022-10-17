@@ -1,11 +1,20 @@
 import React from 'react';
+import '../Main/Main.scss';
+import Nav from '../../../components/Nav/Nav';
+import Contents from './Main_contents';
+import SideBar from './Main_sidebar';
 
-function MainMin() {
+function Main() {
   return (
-    <div>
-      <h1>안녕하세요 민경 메인 페이지입니다.</h1>
-    </div>
+    <nav>
+      <Nav />
+      <div className="forNavTopBar">&nbsp;</div>
+      <div className="mains">
+        <Contents />
+        <SideBar />
+      </div>
+    </nav>
   );
 }
 
-export default MainMin;
+export default Main;
